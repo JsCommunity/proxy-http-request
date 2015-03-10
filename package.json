@@ -1,0 +1,39 @@
+{
+  "name": "proxy-http-request",
+  "version": "0.0.0",
+  "license": "ISC",
+  "description": "",
+  "keywords": [
+    "proxy",
+    "http",
+    "https",
+    "request"
+  ],
+  "homepage": "https://github.com/julien-f/nodejs-proxy-http-request",
+  "bugs": "https://github.com/julien-f/nodejs-proxy-http-request/issues",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/julien-f/nodejs-proxy-http-request/issues"
+  },
+  "author": {
+    "name": "Julien Fontanet",
+    "email": "julien.fontanet@isonoe.net"
+  },
+  "preferGlobal": false,
+  "files": [
+    "index.js"
+  ],
+  "dependencies": {
+    "debug": "^2.1.2",
+    "lodash.assign": "^3.0.0",
+    "lodash.foreach": "^3.0.1",
+    "lodash.isstring": "^3.0.0"
+  },
+  "devDependencies": {
+    "mocha": "*",
+    "must": "*"
+  },
+  "scripts": {
+    "test": "mocha *.spec.js"
+  }
+}
