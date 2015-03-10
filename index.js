@@ -9,7 +9,6 @@ var parseUrl = require('url').parse;
 
 var assign = require('lodash.assign');
 var debug = require('debug')('proxyHttpRequest');
-var forEach = require('lodash.foreach');
 var isString = require('lodash.isstring');
 
 //====================================================================
@@ -81,9 +80,11 @@ function proxyRequest(opts, upReq, upRes) {
   var request = isSecure ? httpsRequest : httpRequest;
 
   var downReq = request(opts, function onResponse(downRes) {
-    forEach(downRes.headers, function forwardResponseHeaderUp(value, name) {
-      upRes.setHeader(name, value);
-    });
+    upRes.writeHead(
+      downRes.statusCode,
+      downRes.statusMessage,
+      downRes.headers
+    );
 
     downRes.pipe(upRes);
 
