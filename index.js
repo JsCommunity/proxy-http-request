@@ -82,7 +82,11 @@ function proxyRequest(opts, upReq, upRes) {
   var downReq = request(opts, function onResponse(downRes) {
     upRes.writeHead(
       downRes.statusCode,
-      downRes.statusMessage,
+
+      // statusMessage is sometimes undefined which may cause
+      // writeHead to ignore the headers in the next argument.
+      downRes.statusMessage || '',
+
       downRes.headers
     );
 
