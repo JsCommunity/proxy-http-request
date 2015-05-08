@@ -33,6 +33,6 @@
     "must": "*"
   },
   "scripts": {
-    "test": "mocha *.spec.js"
+    "test": "mocha '**/*.spec.js'"
   }
 }
