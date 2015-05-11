@@ -95,8 +95,9 @@ describe('httpProxyRequest', function () {
     }
 
     var req = http.request({
+      headers: opts.headers,
       hostname: 'localhost',
-      method: opts.method,
+      method: opts.method || (opts.body || opts.stream ? 'POST' : 'GET'),
       port: proxyPort
     })
 
@@ -111,11 +112,13 @@ describe('httpProxyRequest', function () {
 
   // =================================================================
 
-  it('forwards requests', function () {
+  it('forwards requests (headers & body)', function () {
     return Bluebird.all([
       makeRequest({
         body: 'ping',
-        method: 'POST'
+        headers: {
+          'x-header': 'foo'
+        }
       }).then(function (res) {
         return drainStream(res).then(function (body) {
           expect(body).to.equal('pong')
@@ -124,6 +127,7 @@ describe('httpProxyRequest', function () {
       eventToPromise(server, 'request').spread(function (req, res) {
         res.end('pong')
 
+        expect(req.headers['x-header']).to.equal('foo')
         return drainStream(req).then(function (body) {
           expect(body).to.equal('ping')
         })
