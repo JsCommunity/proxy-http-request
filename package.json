@@ -29,8 +29,10 @@
     "lodash.isstring": "^3.0.0"
   },
   "devDependencies": {
-    "mocha": "*",
-    "must": "*"
+    "bluebird": "^2.9.25",
+    "event-to-promise": "^0.3.2",
+    "mocha": "^2",
+    "must": "^0.12"
   },
   "scripts": {
     "test": "mocha '**/*.spec.js'"
