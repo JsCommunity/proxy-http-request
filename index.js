@@ -141,13 +141,10 @@ function proxyRequest (opts, upReq, upRes) {
   // Method defaults to the one used in the incoming request.
   if (!opts.method) opts.method = upReq.method
 
-  defaults(opts, {
-    headers: {
-      host: opts.hostname || opts.host
-    }
-  }, {
-    headers: upReq.headers
-  })
+  defaults(opts, DEFAULTS)
+  defaults(opts.headers || (opts.headers = {}), {
+    host: opts.hostname || opts.host
+  }, upReq.headers)
 
   debug('proxying %s http%s://%s%s',
     opts.method,
