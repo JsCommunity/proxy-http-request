@@ -27,10 +27,10 @@
     "debug": "^2.1.2"
   },
   "devDependencies": {
-    "bluebird": "^2.9.25",
-    "event-to-promise": "^0.3.2",
+    "bluebird": "^3.3.4",
+    "event-to-promise": "^0.7.0",
     "mocha": "^2",
-    "must": "^0.12"
+    "must": "^0.13"
   },
   "scripts": {
     "test": "mocha '**/*.spec.js'"
