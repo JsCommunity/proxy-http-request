@@ -124,7 +124,10 @@ describe('httpProxyRequest', function () {
           expect(body).to.equal('pong')
         })
       }),
-      eventToPromise(server, 'request').spread(function (req, res) {
+      eventToPromise(server, 'request', { array: true }).then(function (params) {
+        var req = params[0]
+        var res = params[1]
+
         res.end('pong')
 
         expect(req.headers['x-header']).to.equal('foo')

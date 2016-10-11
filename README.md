@@ -1,4 +1,4 @@
-# proxy-http-request
+# proxy-http-request [![Build Status](https://travis-ci.org/JsCommunity/proxy-http-request.png?branch=master)](https://travis-ci.org/JsCommunity/proxy-http-request)
 
 Features:
 
@@ -7,6 +7,8 @@ Features:
 - debug traces via [debug](https://github.com/visionmedia/debug/)
 
 ## Install
+
+Installation of the [npm package](https://npmjs.org/package/proxy-http-request):
 
 ```
 > npm i install --save proxy-http-request
@@ -25,8 +27,47 @@ http.createServer(function (req, res) {
 }).listen(8000);
 ```
 
+With debug traces:
+
 ```
 > DEBUG=proxyHttpRequest node example.js
   proxyHttpRequest parsing URL http://example.org/foo +0ms
   proxyHttpRequest proxying GET http://example.org/foo +8ms
 ```
+
+## Development
+
+### Installing dependencies
+
+```
+> npm install
+```
+
+### Compilation
+
+The sources files are watched and automatically recompiled on changes.
+
+```
+> npm run dev
+```
+
+### Tests
+
+```
+> npm run test-dev
+```
+
+## Contributions
+
+Contributions are *very* welcomed, either on the documentation or on
+the code.
+
+You may:
+
+- report any [issue](https://github.com/JsCommunity/proxy-http-request/issues)
+  you've encountered;
+- fork and create a pull request.
+
+## License
+
+ISC © [Julien Fontanet](https://github.com/julien-f)
