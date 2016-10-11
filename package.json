@@ -37,10 +37,10 @@
   },
   "scripts": {
     "depcheck": "dependency-check ./package.json",
-    "devtest": "mocha --watch '**/*.spec.js'",
+    "devtest": "mocha --watch index.spec.js",
     "lint": "standard",
     "posttest": "npm run lint && npm run depcheck",
-    "test": "mocha '**/*.spec.js'"
+    "test": "mocha index.spec.js"
   },
   "config": {
     "ghooks": {
