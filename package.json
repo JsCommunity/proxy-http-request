@@ -29,7 +29,7 @@
   "devDependencies": {
     "bluebird": "^3.3.4",
     "dependency-check": "^2.6.0",
-    "event-to-promise": "^0.7.0",
+    "event-to-promise": "^0.8.0",
     "husky": "^0.13.1",
     "mocha": "^3.0.2",
     "must": "^0.13",
